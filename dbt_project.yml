@@ -18,5 +18,6 @@ clean-targets:
 
 models:
   hometask:
-    stg:
-      +materialized: view
+  # Config indicated by + and applies to all files under models/example/
+    staging:
+      schema: staging

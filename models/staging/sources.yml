@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data source tables"
+    database: RAW
+    schema: DUMMY_SOURCE
+    tables:
+      - name: raw_business
+        description: "Raw business data from various organizations"
+      - name: raw_subscriptions
+      - name: raw_subscription_items

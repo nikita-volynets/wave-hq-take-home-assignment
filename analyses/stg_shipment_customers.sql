@@ -1,7 +1,7 @@
 -- models/stg/stg_customer_shipment_spend
 
 
-WITH customers AS (
+{# WITH customers AS (
    SELECT
        id AS customer_id,
        city,
@@ -67,6 +67,6 @@ SELECT
        ELSE 'Low Value'
    END AS customer_type
 FROM customer_data
-ORDER BY customer_data.total_cost DESC;
+ORDER BY customer_data.total_cost DESC; #}
 
 
