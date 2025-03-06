@@ -654,6 +654,7 @@ models:
         data_type: string
       - name: customer_region
 	      data_type: string
+
 ```
 
 3. **Tests**
