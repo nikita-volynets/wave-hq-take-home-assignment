@@ -347,7 +347,7 @@ models:
     ...
 ```
 
-1. **Tests**
+2. **Tests**
 
 We can ensure the data quality of our models by utilizing different types of tests. They can check if data in our fields is unique, doesn’t have null values, or perform more advanced logic checks.
 
@@ -380,9 +380,9 @@ models:
 
 Examples of failures:
 
-![image.png](attachment:66709371-838d-4ef1-8c00-dbf20a4f648c:image.png)
+![image](https://github.com/user-attachments/assets/e22ed5fa-07f7-4619-a686-e096f23d1547)
 
-1. **Monitoring & Alerts**
+3. **Monitoring & Alerts**
 
 We can validate the outputs with stakeholders to ensure they align with their expectations.
 
