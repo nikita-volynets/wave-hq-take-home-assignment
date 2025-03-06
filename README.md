@@ -631,7 +631,7 @@ We can also compare the total row count or aggregations, such as revenue by mont
 
 Another option is to check edge cases, like customers without orders.
 
-1. **Data Contracts**
+2. **Data Contracts**
 
 We can use Data Contracts to verify the outputs of our models. They check if our model output contains the column names, data types, and constraints that we defined in the yml file.
 
@@ -656,7 +656,7 @@ models:
 	      data_type: string
 ```
 
-1. **Tests**
+3. **Tests**
 
 We can ensure the data quality of our models by utilizing different types of tests. They can check if data in our fields is unique, doesn’t have null values, or perform more advanced logic checks.
 
