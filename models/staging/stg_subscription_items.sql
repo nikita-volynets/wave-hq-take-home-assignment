@@ -1,11 +1,11 @@
-with source as (
-    select
-        id
-        , unit_type
-        , billing_period_unit
-        , unit_price
-    from {{ source('raw', 'raw_subscription_items') }}
+WITH source AS (
+    SELECT *
+    FROM {{ source('raw', 'raw_subscription_items') }}
 )
 
-select *
-from source
+SELECT
+    id as subscription_item_id,
+    unit_type,
+    billing_period_unit,
+    unit_price
+FROM source

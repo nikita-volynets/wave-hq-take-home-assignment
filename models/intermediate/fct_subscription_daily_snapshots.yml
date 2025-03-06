@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: fct_subscription_daily_snapshots
+    description: "Daily subscription revenue tracking with business and channel details."
+    config:
+      contract:
+        enforced: true
+      materialized: table
+
+    columns:
+      - name: subscription_id
+        description: "Unique identifier for each subscription."
+        data_type: integer
+        constraints:
+          - type: not_null
+
+      - name: business_id
+        description: "Identifier for the associated business."
+        data_type: integer
+        constraints:
+          - type: not_null
+
+      - name: date_day
+        description: "Date of the subscription revenue record."
+        data_type: date
+
+      - name: channel
+        description: "Channel through which the subscription was purchased (e.g., web, mobile)."
+        data_type: varchar
+
+      - name: monthly_recurring_revenue
+        description: "Monthly recurring revenue for the subscription."
+        data_type: float
+
+
+      - name: second_status
+        description: "Additional status field for the subscription."
+        data_type: varchar

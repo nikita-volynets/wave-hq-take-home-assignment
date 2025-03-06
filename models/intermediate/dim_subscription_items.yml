@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_subscription_items
+    description: "Subscription items with pricing details for different platforms and billing periods."
+    config:
+      contract:
+        enforced: true
+      materialized: table 
+
+    columns:
+      - name: subscription_item_id
+        description: "Unique identifier for the subscription item."
+        data_type: integer
+        constraints:
+          - type: primary_key
+
+      - name: unit_type
+        description: "Type of subscription, including platform and billing frequency."
+        data_type: varchar
+        constraints:
+          - type: not_null
+
+      - name: billing_period_unit
+        description: "Defines the billing cycle of the subscription (monthly/yearly)."
+        data_type: varchar
+
+      - name: unit_price
+        description: "Price of the subscription in the respective billing period."
+        data_type: float
+

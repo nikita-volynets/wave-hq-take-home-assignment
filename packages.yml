@@ -1,0 +1,6 @@
+packages:
+  # https://hub.getdbt.com/dbt-labs/dbt_utils/latest/
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+  - package: calogica/dbt_date
+    version: 0.10.1

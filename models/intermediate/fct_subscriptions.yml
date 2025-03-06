@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: raw_subscriptions
+    description: "Raw subscription data capturing details of business subscriptions, including status, timestamps, and exchange rates."
+    config:
+      contract:
+        enforced: true
+      materialized: table
+
+    columns:
+      - name: id
+        description: "Unique identifier for each subscription."
+        data_type: integer
+        constraints:
+          - type: primary_key
+
+      - name: business_id
+        description: "Identifier for the associated business."
+        data_type: integer
+        constraints:
+          - type: not_null
+
+      - name: purchase_channel
+        description: "Channel through which the subscription was purchased (e.g., web, iOS, Android)."
+        data_type: varchar
+        constraints:
+          - type: not_null
+
+      - name: created_at
+        description: "Timestamp when the subscription was created."
+        data_type: timestamp
+        constraints:
+          - type: not_null
+
+      - name: subscription_plan
+        description: "Type of subscription plan purchased."
+        data_type: varchar
+        constraints:
+          - type: not_null
+
+      - name: current_term_start
+        description: "Start date of the current subscription term."
+        data_type: timestamp
+
+      - name: current_term_end
+        description: "End date of the current subscription term."
+        data_type: timestamp
+
+      - name: exchange_rate
+        description: "Exchange rate at the time of subscription purchase."
+        data_type: float
+
+      - name: status
+        description: "Current status of the subscription (e.g., active, cancelled)."
+        data_type: varchar
+
+      - name: cancel_schedule_created_at
+        description: "Timestamp when a subscription was scheduled for cancellation (if applicable)."
+        data_type: timestamp
+
+      - name: cancelled_at
+        description: "Timestamp when the subscription was officially cancelled (if applicable)."
+        data_type: timestamp

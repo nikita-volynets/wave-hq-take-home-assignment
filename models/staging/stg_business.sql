@@ -1,15 +1,15 @@
-with source as (
+WITH source AS (
 
-select
-    id
-    , create_date
-    , country
-    , organizational_type
-    , type
-    , subtype
-from {{ source('raw', 'raw_business') }}
+SELECT *
+FROM {{ source('raw', 'raw_business') }}
 
 )
 
-select *
-from source
+SELECT
+    id AS business_id,
+    create_date AS business_create_date,
+    country AS business_country,
+    organizational_type,
+    type AS business_type,
+    subtype AS business_subtype
+FROM source

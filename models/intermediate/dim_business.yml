@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_business
+    description: "Business registration data including business type, subtype, and organizational structure."
+    config:
+      contract:
+        enforced: true
+      materialized: table
+
+    columns:
+      - name: business_id
+        description: "Unique identifier for each business."
+        data_type: integer
+        constraints:
+          - type: primary_key
+
+      - name: business_create_date
+        description: "The date when the business was created."
+        data_type: date
+        constraints:
+          - type: not_null
+
+      - name: business_country
+        description: "The country where the business is registered."
+        data_type: varchar
+
+      - name: organizational_type
+        description: "The type of business organization."
+        data_type: varchar
+
+      - name: business_type
+        description: "The category of the business based on its operations."
+        data_type: varchar
+
+      - name: business_subtype
+        description: "The detailed subtype classification of the business."
+        data_type: varchar

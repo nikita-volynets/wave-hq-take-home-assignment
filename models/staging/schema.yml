@@ -1,0 +1,97 @@
+version: 2
+
+models:
+  - name: stg_business
+    description: "Staging model for business data, standardizing column names and ensuring data integrity."
+    columns:
+      - name: business_id
+        description: "Unique identifier for the business."
+        tests:
+          - unique
+          - not_null
+
+      - name: business_create_date
+        description: "The date when the business was created."
+        tests:
+          - not_null
+
+      - name: business_country
+        description: "The country where the business is registered."
+
+      - name: organizational_type
+        description: "The type of business organization (e.g., Corporation, Sole Proprietorship)."
+
+      - name: business_type
+        description: "Category of the business based on its operations."
+
+      - name: business_subtype
+        description: "Detailed classification of the business subtype."
+
+  - name: stg_subscription_items
+    description: "Staging model for subscription items, ensuring pricing and billing details are standardized."
+    columns:
+      - name: subscription_item_id
+        description: "Unique identifier for each subscription item."
+        tests:
+          - unique
+          - not_null
+
+      - name: unit_type
+        description: "The type of subscription"
+        tests:
+          - not_null
+
+      - name: billing_period_unit
+        description: "Defines the billing cycle (e.g., month, year)."
+
+      - name: unit_price
+        description: "Price of the subscription for the respective billing period."
+
+  - name: stg_subscriptions
+    description: "Staging model for subscription details, including term dates, cancellation, and status tracking."
+    columns:
+      - name: subscription_id
+        description: "Unique identifier for each subscription."
+        tests:
+          - unique
+          - not_null
+
+      - name: business_id
+        description: "Identifier for the business associated with the subscription."
+        tests:
+          - not_null
+
+      - name: subscription_created_at
+        description: "Timestamp when the subscription was created."
+        tests:
+          - not_null
+
+      - name: current_term_start
+        description: "Start date of the current subscription term."
+
+      - name: current_term_end
+        description: "End date of the current subscription term."
+
+      - name: cancel_schedule_created_at
+        description: "Timestamp when the subscription was scheduled for cancellation (nullable)."
+
+      - name: cancelled_at
+        description: "Timestamp when the subscription was officially cancelled (nullable)."
+
+      - name: channel
+        description: "Channel through which the subscription was purchased."
+
+      - name: subscription_country
+        description: "Country where the subscription was purchased."
+
+      - name: subscription_status
+        description: "Current status of the subscription (e.g., active, cancelled)."
+
+      - name: exchange_rate
+        description: "Exchange rate at the time of purchase."
+
+      - name: subscription_item_id
+        description: "Reference to the subscription item associated with this subscription."
+
+      - name: currency_code
+        description: "Currency code for the subscription transaction (e.g., USD, CAD)."
